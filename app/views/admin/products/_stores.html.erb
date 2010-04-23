@@ -1,5 +1,6 @@
 <p>
   <%= f.label :stores, t("stores")%><br />
+  <%= hidden_field_tag "products_stores", '1' %>
   <% Store.all.each do |store| %>
     <%= check_box_tag "product[store_ids][]", store.id, @product.stores.include?(store) %> <%= store.name %>
   <% end %>

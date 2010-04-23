@@ -88,7 +88,7 @@ class MultiDomainExtension < Spree::Extension
 
       private
       def set_stores
-        @product.store_ids = nil unless params[:product].key? :store_ids
+        @product.store_ids = nil if params.key?(:products_stores) && !params[:product].key?(:store_ids)
       end
 
       def add_to_all_stores
